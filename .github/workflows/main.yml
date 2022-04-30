@@ -11,8 +11,8 @@ jobs:
     - name: Checking Shell Path
       run: pwd && ls
       
-    - name: Restarting Passenger Server Again      
-      run: echo 'test' > tmp/restart.txt    
+    - name: Restarting Passenger Server  
+      run: sh ./restart_server.sh && cat ./tmp/restart.txt
 
     - name: 📂 Sync files with Server
       uses: SamKirkland/FTP-Deploy-Action@4.3.0

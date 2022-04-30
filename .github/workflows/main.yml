@@ -8,8 +8,11 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v2
 
-    - name: Restarting Passenger Server Again
-      run: echo 'test' > tmp/restart.txt
+    - name: Checking Shell Path
+      run: pwd && ls
+      
+    - name: Restarting Passenger Server Again      
+      run: echo 'test' > tmp/restart.txt    
 
     - name: 📂 Sync files with Server
       uses: SamKirkland/FTP-Deploy-Action@4.3.0

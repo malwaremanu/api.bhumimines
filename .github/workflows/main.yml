@@ -7,7 +7,10 @@ jobs:
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v2
-    
+
+    - name: Restarting Passenger Server Again
+      run: echo 'test' > tmp/restart.txt
+
     - name: 📂 Sync files with Server
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
@@ -15,5 +18,4 @@ jobs:
         username: ${{ secrets.bh_user }}
         password: ${{ secrets.bh_pass }}
 
-    - name: Restarting Passenger Server Again
-      run: echo '' > tmp/restart.txt
+

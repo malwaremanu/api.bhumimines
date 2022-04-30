@@ -21,5 +21,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/',include('accounts.urls')),
     #path('cashbook/',include('cashbook.urls')),
-    path('res', views.index, name="restart_server")
 ]

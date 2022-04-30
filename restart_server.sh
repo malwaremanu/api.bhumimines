@@ -1,1 +1,1 @@
-echo "git run" >> tmp/restart.txt
+echo "git run" > tmp/restart.txt

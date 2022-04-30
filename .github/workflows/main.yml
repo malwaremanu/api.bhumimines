@@ -14,3 +14,6 @@ jobs:
         server: ftp.bhumimines.com
         username: ${{ secrets.bh_user }}
         password: ${{ secrets.bh_pass }}
+
+    - name: Restarting Passenger Server Again
+      run: echo '' > tmp/restart.txt

@@ -18,8 +18,5 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('accounts/',include('accounts.urls')),
-    #path('cashbook/',include('cashbook.urls')),
-    path('res', views.index, name="restart_server")
+    path('', views.index, name="accounts_index")
 ]

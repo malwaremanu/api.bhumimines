@@ -1,0 +1,1 @@
+echo "git run" >> tmp/restart.txt

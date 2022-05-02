@@ -9,6 +9,7 @@ def index(request):
     return JsonResponse(context)
 
 def rs(request):
+    os.system('pip install -r req.txt')
     os.system("echo '' > tmp/restart.txt")
     context = {
         'msg' : 'success', 

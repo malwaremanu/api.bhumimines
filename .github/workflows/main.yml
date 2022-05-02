@@ -16,4 +16,4 @@ jobs:
         password: ${{ secrets.bh_pass }}
       
     - name: Restarting Passenger Server  
-      run: wget "https://api.erp.bhumimines.com/rs"
+      run: wget "https://api.erp.bhumimines.com/rs" && cat ./rs

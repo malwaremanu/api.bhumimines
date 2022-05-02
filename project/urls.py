@@ -22,5 +22,6 @@ urlpatterns = [
     path('', views.index, name="project_index"),
     path('rs', views.rs, name="project_restart"),
     path('accounts/',include('accounts.urls')),
+
     #path('cashbook/',include('cashbook.urls')),
 ]

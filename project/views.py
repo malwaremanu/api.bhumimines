@@ -1,4 +1,5 @@
 from django.http import JsonResponse
+from django.shortcuts import redirect, render
 import os, datetime
 
 def index(request):    
@@ -6,7 +7,7 @@ def index(request):
         'msg' : 'success', 
         'page' : 'main page.', 
     }    
-    return JsonResponse(context)
+    return render(request, 'project/base.html', context)
 
 def rs(request):
     os.system('pip install -r req.txt')

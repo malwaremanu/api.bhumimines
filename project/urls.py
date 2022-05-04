@@ -19,9 +19,10 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name="project_index"),
+    path('', views.index, name="main_index"),
     path('rs', views.rs, name="project_restart"),
     path('accounts/',include('accounts.urls')),
+    path('cashbook/',include('cashbook.urls')),
 
     #path('cashbook/',include('cashbook.urls')),
 ]

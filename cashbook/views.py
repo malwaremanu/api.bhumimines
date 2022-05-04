@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from django.http import JsonResponse
+from django.shortcuts import redirect, render
+import os, datetime
 
-# Create your views here.
+def index(request):    
+    context = {
+        'msg' : 'success', 
+        'page' : 'main page.', 
+    }    
+    return render(request, 'cashbook/base.html', context)

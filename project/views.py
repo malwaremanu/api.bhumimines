@@ -12,7 +12,7 @@ def index(request):
     return render(request, 'project/base.html', context)
 
 def rs(request):
-    #os.system('pip install -r req.txt')
+    os.system('pip install -r requirements.txt')
     os.system("echo '' > tmp/restart.txt")
     context = {
         'msg' : 'success', 

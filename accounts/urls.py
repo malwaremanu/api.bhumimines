@@ -19,7 +19,7 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name="accounts_index"),
-    path('login', views.login, name="login"),
-	path('api_login', views.api_login, name="login"),
-    path('api_reset', views.api_reset, name="reset"),
+    path('login', views.login, name="accounts_login"),
+	path('api_login', views.api_login, name="api_login"),
+    path('api_reset', views.api_reset, name="api_reset"),
 ]

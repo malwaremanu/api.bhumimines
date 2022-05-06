@@ -10,6 +10,8 @@ def index(request):
     return JsonResponse(context)
 
 def login(request):    
+    if request.method == 'POST':
+        print(request.POST)
     return render(request, 'accounts/login.html')
 
 @csrf_exempt

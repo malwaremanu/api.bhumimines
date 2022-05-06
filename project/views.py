@@ -2,7 +2,9 @@ from django.http import JsonResponse
 from django.shortcuts import redirect, render
 import os, datetime
 
-def index(request):    
+def index(request):  
+    print(request.session.get('username'))  
+    print(request.session.get('username'))  
     context = {
         'msg' : 'success', 
         'page' : 'main page.', 

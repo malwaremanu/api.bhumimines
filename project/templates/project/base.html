@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.5/dist/flowbite.min.css" />
     <script src="https://unpkg.com/flowbite@1.4.5/dist/flowbite.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <link rel="stylesheet" href="https://unpkg.com/@dmuy/dialog@{version}/dist/duDialog.css" />
+    <script src="https://unpkg.com/@dmuy/dialog@{version}/dist/duDialog.js"></script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -26,6 +31,8 @@
 </head>
 
 <body class="bg-gray-200 dark:bg-gray-900">
+
+    {% if request.session.username %}
     <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-800">
         <div class="container flex flex-wrap justify-between items-center mx-auto">
             <a href="{% url 'main_index' %}" class="flex items-center">
@@ -112,6 +119,7 @@
             </div>
         </div>
     </nav>
+    
 
     <div class="container mx-auto flex justify-between gap-3 p-6">
         {% block content %}
@@ -141,5 +149,21 @@
         </a>
         {% endblock %}
     </div>
+    {% else %}
+    <div class="container mx-auto p-4 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700 mt-5">
+        
+        <center class="items-center">
+            <div class="m-5 text-xl font-semibold">
+                Please Login First. 
+            </div>
+            <div class="m-5">
+                <a href="{% url 'accounts_login' %}" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login
+                    to your account</a>
+            </div>        
+        </center>
+        
+        
+    </div>
+    {% endif %}
 </body>
 </html>

@@ -9,17 +9,24 @@
     <form class="space-y-6" action="{% url 'accounts_login' %}" method="POST">
         {% csrf_token %}
         <h5 class="text-xl font-medium text-gray-900 dark:text-white">Sign in to our platform</h5>
+
+        {% if msg %}
+        <p class="text-xs font-normal text-red-600 dark:text-red-500 p-2 border border-red-500 text-center rounded-md">
+            {{ msg }}
+        </p>
+        {% endif %}
+        
         <div>
-            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your
+            <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your
                 email</label>
-            <input type="email" name="email" id="email"
+            <input type="email" name="username" value="asd@asd.com" id="username"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 placeholder="name@company.com" required="">
         </div>
         <div>
             <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your
                 password</label>
-            <input type="password" name="password" id="password" placeholder="••••••••"
+            <input type="password" name="password" id="password" value="password" placeholder="••••••••"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 required="">
         </div>

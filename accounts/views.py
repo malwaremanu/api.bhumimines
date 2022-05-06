@@ -10,9 +10,27 @@ def index(request):
     return JsonResponse(context)
 
 def login(request):    
-    if request.method == 'POST':
-        print(request.POST)
-    return render(request, 'accounts/login.html')
+    if request.method != 'POST':
+        return render(request, 'accounts/login.html')
+    data = dict(request.POST)
+    print(data)
+    if data['username'][0] == 'asd@asd.com' and data['password'][0] == 'password':
+        print('login successfull')
+        request.session['username'] = data['username'][0]
+        request.session['password'] = data['password'][0]        
+        return redirect('cashbook_index')
+    else:
+        print('login failed', data)
+        return render(request, 'accounts/login.html',{
+            'msg' : 'Either username or password is incorrect.'
+        })
+
+def logout(request):    
+    del request.session['username'] 
+    del request.session['password'] 
+    return render(request, 'accounts/login.html',{
+            'msg' : 'You have successfully logged out.'
+        })
 
 @csrf_exempt
 def api_login(request): 

@@ -2,7 +2,12 @@ from django.http import JsonResponse
 from django.shortcuts import redirect, render
 import os, datetime
 
-def index(request):    
+def check_login(request):
+    if not request.session:
+        return redirect('accounts_login')
+
+def index(request):        
+    check_login(request)
     context = {
         'msg' : 'success', 
         'page' : 'main page.', 

@@ -44,18 +44,18 @@
                     id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
                     <span class="sr-only">Open user menu</span>
                     <span class="w-8 h-8 rounded-full bg-green-50">
-                        <img class="w-8 h-8 rounded-full bg-green-50" src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" alt="">
+                        <img class="w-8 h-8 rounded-full bg-green-50" src="{% static request.session.data.photo %}" alt="">
                     </span>
                 </button>
 
-                <div class="hidden z-50 my-4 text-base list-none bg-green rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+                <div class="hidden z-50 my-4 text-base list-none bg-gray-100 rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
                     id="dropdown"
                     style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(1015px, 907.5px, 0px);"
                     data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top">
                     <div class="py-3 px-4">
-                        <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
+                        <span class="block text-sm text-gray-900 dark:text-white">{{ request.session.data.name }}</span>
                         <span
-                            class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">asd@asd.com</span>
+                            class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">{{ request.session.data.email }}</span>
                     </div>
                     <ul class="py-1" aria-labelledby="dropdown">
                         <li>

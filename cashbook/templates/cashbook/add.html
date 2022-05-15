@@ -1,0 +1,106 @@
+{% extends 'project/base.html' %}
+{% load static %}
+
+{% block title %} Cashbook Management {% endblock %}
+{% block content %}
+<div class="gap-2">
+    <nav class="flex" aria-label="Breadcrumb">
+        <ol class="inline-flex items-center space-x-1 md:space-x-3">
+            <li class="inline-flex items-center">
+                <a href="{% url 'main_index' %}"
+                    class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                    <svg class="mr-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                        </path>
+                    </svg>
+                    Home
+                </a>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <a href="{% url 'cashbook_index' %}"
+                        class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Cashbook</a>
+                </div>
+            </li>
+            <li aria-current="page">
+                <div class="flex items-center">
+                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">Create New Entry</span>
+                </div>
+            </li>
+        </ol>
+    </nav>
+    
+    <div class="grid justify-between gap-5 my-3">            
+        <div class="my-3 p-4 w-full bg-white rounded-lg border shadow-md dark:bg-gray-800 dark:border-gray-700">
+            
+            <div class="text-slate-800 dark:text-white" x-data="{
+                'data' : [''],
+                'new_data' : {},
+                'category' : ['INCOME','TRANSFER','FUEL','TRAVELING','SALARIES','MEDICAL EXPENSES','FOOD','TRANSPORT','LABOR EXPENSES','OFFICE EXPENSES','PROFESSIONAL FEES','CHARITY','TÉLÉCOMMUNICATIONS','ADVANCES','SOCIAL WELFARE','COMPUTER AND IT','TAXES','REPAIRS AND MAINTENANCE','STATIONERY','REPAIR AND MAINTENACE','BANK CHARGES','MUYA RESOURCES','PFN SAS','SECURITY EXPENSES','MISCELLANEOUS EXPENSES','SPARES PARTS','PURCHASE','ELECTRICITY EXPENSES','WATER EXPENSES','SAMPLING','UNCATEGORIZED','FREIGHT']
+            }">
+            
+
+            "uuid" : str(self.uuid),
+            "opening_balance" : self.opening_balance,
+            "closing_balance" : self.closing_balance,
+            "date" : self.date,            
+            "user" : self.user,
+
+            <div>
+                Opening Balance : <span x-text="new_data.opening_balance"></span>
+            </div>
+
+            <table class="table-auto">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Currency</th>
+                        <th>Amount</th>
+                        <th>Approved By</th>
+                        <th>Paid By</th>
+                        <th>Place</th>
+                        <th>Remark</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </tbody>
+            </table>
+            
+
+            <div>
+                Closing Balance : <span x-text="new_data.closing_balance"></span>
+            </div>
+
+
+            
+            
+
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+{% endblock %}

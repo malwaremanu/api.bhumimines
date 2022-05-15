@@ -19,4 +19,5 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name="cashbook_index"),
+    path('add', views.add, name="cashbook_add"),
 ]

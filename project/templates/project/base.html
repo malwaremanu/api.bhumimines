@@ -1,7 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +9,10 @@
     <script src="https://unpkg.com/flowbite@1.4.5/dist/flowbite.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 
-
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<!-- 
     <link rel="stylesheet" href="https://unpkg.com/@dmuy/dialog@{version}/dist/duDialog.css" />
-    <script src="https://unpkg.com/@dmuy/dialog@{version}/dist/duDialog.js"></script>
+    <script src="https://unpkg.com/@dmuy/dialog@{version}/dist/duDialog.js"></script> -->
 
     <script>
         tailwind.config = {
@@ -28,10 +28,25 @@
     <title>
         {% block title %} Main {% endblock %} | Bhumi Mines
     </title>
+
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          border-radius: 1rem;
+          text-align: left;
+          padding: 8px;
+        }        
+    </style>
+
 </head>
 
 <body class="bg-gray-200 dark:bg-gray-900">
-
     {% if request.session.username %}
     <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-800">
         <div class="container flex flex-wrap justify-between items-center mx-auto">

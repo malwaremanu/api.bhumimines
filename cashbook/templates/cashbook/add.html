@@ -182,12 +182,13 @@ Management {% endblock %} {% block content %}
         }, 
         closeModal(){
             console.log('closing modal')            
-            this.modalState = 1
+            this.modalState = 0
             this.td = {}
-            console.log('modal opened')
+            console.log('modal closed')
         }, 
         push_to_table(){
             add_to_table(this.td, this.td['uuid'])
+            this.modalState = 0
             this.td = {}
         }
       }"

@@ -129,7 +129,7 @@ Management {% endblock %} {% block content %}
         </div>
       </div>
 
-      <table class="table-auto w-full p-2 border rounded-md text-left my-4">
+      <table class="table-auto w-full p-2 border rounded-md text-left my-4 text-sm">
           <tr class="p-2">
             <th>Category</th>
             <th>Currency</th>
@@ -140,7 +140,7 @@ Management {% endblock %} {% block content %}
             <th>Remark</th>
             <th>Action</th>
           </tr>
-        <template x-for="arr in arr_table">
+        <template x-for="arr in arr_table" class="text-xs">
           <tr>
             <td x-text="arr['category']"></td>
             <td x-text="arr['currency']"></td>
@@ -230,7 +230,8 @@ Management {% endblock %} {% block content %}
 
               <div class="p-6 space-y-6">
                   
-                <input class="bg-transparent px-4 py-2" type="text" x-model="td['uuid']"/>
+                <!-- <input class="bg-transparent px-4 py-2 hidden" type="text" x-model="td['uuid']"/> -->
+
                 <div class="flex justify-between">
                   <div>
                     Category <br />

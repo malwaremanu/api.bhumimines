@@ -1,7 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,10 +8,11 @@
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.5/dist/flowbite.min.css" />
     <script src="https://unpkg.com/flowbite@1.4.5/dist/flowbite.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<!-- 
     <link rel="stylesheet" href="https://unpkg.com/@dmuy/dialog@{version}/dist/duDialog.css" />
-    <script src="https://unpkg.com/@dmuy/dialog@{version}/dist/duDialog.js"></script>
+    <script src="https://unpkg.com/@dmuy/dialog@{version}/dist/duDialog.js"></script> -->
 
     <script>
         tailwind.config = {
@@ -28,10 +28,25 @@
     <title>
         {% block title %} Main {% endblock %} | Bhumi Mines
     </title>
+
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #424242;
+          border-radius: 3rem;
+          text-align: left;
+          padding: 8px;
+        }        
+    </style>
+
 </head>
 
 <body class="bg-gray-200 dark:bg-gray-900">
-
     {% if request.session.username %}
     <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-800">
         <div class="container flex flex-wrap justify-between items-center mx-auto">
@@ -120,11 +135,8 @@
         {% block content %}
         <a href="#"
             class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology
-                acquisitions 2021</h5>
-            <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
-                acquisitions
-                of 2021 so far, in reverse chronological order.</p>
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Cashbook Management</h5>
+            <p class="font-normal text-gray-700 dark:text-gray-400">Check latest status of cashbooks available.</p>
         </a>
         <a href="#"
             class="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">

@@ -2,6 +2,7 @@ from django.http import JsonResponse
 import os, datetime, json
 from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
+from pydantic import Json
 from .models import user
 
 def index(request):    
@@ -12,12 +13,14 @@ def index(request):
 
 def login(request):    
     if request.method != 'POST':
-        return render(request, 'accounts/login.html')
+        #return render(request, 'accounts/login.html')
+        return JsonResponse({
+            'msg' : 'empty response'
+        })
     data = dict(request.POST)    
     all_users = [x.up() for x in user.objects.all()]
     if (data.get('username')[0] +"####"+ data.get('password')[0]) in all_users:
         print('login successfull')
-
 
         for x in user.objects.all():
             x = x.userpass()
@@ -43,17 +46,24 @@ def logout(request):
 def api_login(request): 
     data = json.loads(request.body.decode('utf-8'))
     all_users = [x.up() for x in user.objects.all()]
+    if (data.get('username')[0] +"####"+ data.get('password')[0]) in all_users:
+        print('login successfull')
 
-    if (data.get('username') +"####"+ data.get('password')) in all_users:
-        msg = 'success'
+        for x in user.objects.all():
+            x = x.userpass()
+            if (data.get('username')[0] == x['username']) and data.get('password')[0] == x['password']:
+                request.session['username'] = x['username']
+                request.session['password'] = x['password']
+                request.session['data'] = x
+                return JsonResponse({
+                    "msg" : "success"
+                })
     else:
-        msg = 'error'
-
-    context = {
-        'msg' : msg,
-        "data" : data
-    }
-    return JsonResponse(context)
+        print('login failed', data)
+        return render(request, 'accounts/login.html',{
+            'msg' : 'Either username or password is incorrect.'
+        })
+    return JsonResponse({})
 
 
 @csrf_exempt
